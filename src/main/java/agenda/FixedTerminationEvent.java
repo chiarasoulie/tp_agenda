@@ -1,10 +1,8 @@
 package agenda;
-
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-
 /**
  * Description : A repetitive event that terminates after a given date, or after
  * a given number of occurrences
