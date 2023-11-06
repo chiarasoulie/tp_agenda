@@ -11,6 +11,10 @@ import java.time.temporal.ChronoUnit;
  */
 public class FixedTerminationEvent extends RepetitiveEvent {
 
+    private LocalDate terminationInclusive;
+    private long numberOfOccurrences;
+    private LocalDate calculTermination;
+
     
     /**
      * Constructs a fixed terminationInclusive event ending at a given date
@@ -49,8 +53,8 @@ public class FixedTerminationEvent extends RepetitiveEvent {
      */
     public FixedTerminationEvent(String title, LocalDateTime start, Duration duration, ChronoUnit frequency, long numberOfOccurrences) {
         super(title, start, duration, frequency);
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        this.numberOfOccurrences = numberOfOccurrences;
+        calculTermination = start.toLocalDate().plus(numberOfOccurrences, frequency);
     }
 
     /**
@@ -58,13 +62,17 @@ public class FixedTerminationEvent extends RepetitiveEvent {
      * @return the termination date of this repetitive event
      */
     public LocalDate getTerminationDate() {
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");   
+        return calculTermination;
     }
 
     public long getNumberOfOccurrences() {
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        return numberOfOccurrences;
+    }
+    public String toString() {
+        return super.toString() +
+                "terminationInclusive=" + terminationInclusive +
+                ", numberOfOccurrences=" + numberOfOccurrences +
+                '}';
     }
         
 }
