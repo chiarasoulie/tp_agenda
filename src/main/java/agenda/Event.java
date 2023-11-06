@@ -34,6 +34,13 @@ public class Event {
         this.myStart = start;
         this.myDuration = duration;
     }
+    public String toString() {
+        return "Event{" +
+                "myTitle='" + myTitle + '\'' +
+                ", myStart=" + myStart +
+                ", myDuration=" + myDuration +
+                '}';
+    }
 
     /**
      * Tests if an event occurs on a given day
